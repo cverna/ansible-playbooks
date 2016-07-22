@@ -1,0 +1,5 @@
+[tomcatservers]
+tomcat1
+
+[nagiosservers]
+nagios1
