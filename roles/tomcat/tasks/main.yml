@@ -1,0 +1,10 @@
+---
+- name: configure basic os tools
+  include: base-os.yml
+  when: base-os
+  tags: baseos
+  
+- name: install and start tomcat
+  include: tomcat.yml
+  when: tomcat
+  tags: tomcat
