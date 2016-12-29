@@ -1,5 +1,6 @@
 ---
 - name: Install basic packages
+  become: true
   dnf:
       name: "{{ item }}"
       state: present
@@ -8,3 +9,5 @@
       - powerline
       - mozilla-fira-mono-fonts
       - vim-powerline
+      - git
+      - python3-flake8

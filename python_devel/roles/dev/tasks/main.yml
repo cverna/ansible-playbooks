@@ -1,12 +1,4 @@
 ---
-- name: Install Dev packages
-  dnf:
-      name: "{{ item }}"
-      state: present
-  with_items:
-      - git
-      - python3-flake8
-
 - name: Install .bashrc
   copy:
         src: .bashrc
