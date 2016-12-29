@@ -1,0 +1,48 @@
+---
+- name: Install Dev packages
+  dnf:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - git
+      - python3-flake8
+
+- name: Install .bashrc
+  copy:
+        src: .bashrc
+        dest: {{ ansible_user_dir }}/.bashrc
+        mode: 0644
+        owner: {{ ansible_user_id }}
+        group: {{ ansible_user_id }}
+
+- name: Install .vimrc
+  copy:
+        src: .vimrc
+        dest: {{ ansible_user_dir }}/.vimrc
+        mode: 0644
+        owner: {{ ansible_user_id }}
+        group: {{ ansible_user_id }}
+
+- name: Install .vim/colors/molokai.vim
+  copy:
+        src: molokai.vim 
+        dest: {{ ansible_user_dir }}/.vim/colors/molokai.vim
+        mode: 0644
+        owner: {{ ansible_user_id }}
+        group: {{ ansible_user_id }}
+
+- name: Install .vim/syntax/python.vim
+  copy:
+        src: python.vim
+        dest: {{ ansible_user_dir }}/.vim/syntax/python.vim
+        mode: 0644
+        owner: {{ ansible_user_id }}
+        group: {{ ansible_user_id }}
+
+- name: Install .vim/autoload/pathogen.vim
+  copy:
+        src: pathogen.vim
+        dest: {{ ansible_user_dir }}/.vim/autoload/pathogen.vim
+        mode: 0644
+        owner: {{ ansible_user_id }}
+        group: {{ ansible_user_id }}
