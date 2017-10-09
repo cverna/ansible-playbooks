@@ -6,14 +6,40 @@
       state: present
   with_items:
       - htop
-      - mozilla-fira-mono-fonts
-      - git
+      - ftop
       - powertop
-      - gnome-pomodoro
-      - docker
+      - pss
+      - git
       - tmux
       - neovim
-      - python3-bpython
-      - python3-sphinx
+      - mozilla-fira-mono-fonts
+      - mozilla-https-everywhere
+      - gnome-pomodoro
+      - docker
       - gobby05
       - httpie
+      - ansible
+      - gnome-tweak-tool
+
+- name: Install Python packages
+  become: true
+  dnf:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - python3-bpython
+      - python3-sphinx-theme-alabaster
+      - python3-sphinx
+
+- name: Add user to wheel group
+  user:
+      name: "{{ username }}"
+      groups: wheel
+      append: yes
+
+- name: Enable systemd service
+  systemd:
+      name: "{{ item }}"
+      enabled: True
+  with_items:
+      - docker
