@@ -5,4 +5,4 @@
   vars:
   roles:
     - core
-    - dev
+    - conf

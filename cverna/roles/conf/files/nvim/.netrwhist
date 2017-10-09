@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/cverna/Documents/Fedora/fedora-packages/fedoracommunity/search'
+let g:netrw_dirhist_2='/home/cverna/.config/nvim'
+let g:netrw_dirhist_3='/home/cverna/Documents/Fedora/ansible'
+let g:netrw_dirhist_4='/home/cverna/Documents/Fedora'
+let g:netrw_dirhist_5='/home/cverna/Documents/Fedora/ansible'
+let g:netrw_dirhist_6='/home/cverna/Documents/Fedora/ansible/roles'
+let g:netrw_dirhist_7='/home/cverna/Documents/Fedora/ansible/roles/packages3'
+let g:netrw_dirhist_8='/home/cverna/Documents/Fedora/ansible/roles/packages3/web'
+let g:netrw_dirhist_9='/home/cverna/Documents/Fedora/ansible/roles/packages3/web/tasks'

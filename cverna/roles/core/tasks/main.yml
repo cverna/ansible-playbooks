@@ -1,0 +1,19 @@
+---
+- name: Install basic packages
+  become: true
+  dnf:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - htop
+      - mozilla-fira-mono-fonts
+      - git
+      - powertop
+      - gnome-pomodoro
+      - docker
+      - tmux
+      - neovim
+      - python3-bpython
+      - python3-sphinx
+      - gobby05
+      - httpie
