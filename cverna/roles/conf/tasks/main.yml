@@ -19,3 +19,11 @@
         mode: 0644
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
+
+- name: Install .gitconfig
+  copy:
+        src: .gitconfig
+        dest: "{{ ansible_user_dir }}/.gitconfig"
+        mode: 0644
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"

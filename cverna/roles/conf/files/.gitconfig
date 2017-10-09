@@ -1,0 +1,20 @@
+[user]
+	name = Clement Verna
+	email = cverna@tutanota.com
+[core]
+    editor = vim
+    whitespace = trailing-space,space-before-tab
+[apply]
+    whitespace = fix
+[color]
+    ui = true
+    status = auto
+	branch = auto
+	interactive = auto
+	diff = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	ll = log --graph --pretty=oneline --decorate --abbrev-commit
