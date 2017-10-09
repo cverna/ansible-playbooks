@@ -10,7 +10,7 @@
 - name: Copy neovim configuration
   synchronize:
       src: nvim/
-      dest: "{{ ansible_user_dir }}/.config/nvim
+      dest: "{{ ansible_user_dir }}/.config/nvim"
 
 - name: Install .tmux.conf
   copy:
