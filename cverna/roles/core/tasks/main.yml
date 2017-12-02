@@ -20,6 +20,7 @@
       - httpie
       - ansible
       - gnome-tweak-tool
+      - flatpak
 
 - name: Install Python packages
   become: true
