@@ -70,9 +70,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 :imap jk <ESC>
 
-"ctags
-let g:ctags_statusline=1
-
 set laststatus=2
 set statusline=%f%m%r%w\ (b%n)\ %l,%v\ [%Y/%{&ff}/%{&fileencoding}]
 
@@ -87,6 +84,7 @@ au BufNewFile,BufRead *.yml,*.yaml setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.cpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.hpp setlocal expandtab ts=2 sw=2
 au BufNewFile,BufRead *.json setlocal expandtab ts=2 sw=2<Paste>
+au BufNewFile,BufRead *.html set ft=html ts=2 shiftwidth=2 expandtab
 
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
@@ -101,3 +99,6 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 " flag unwanted white space
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
+" flag line that exceed 90 char
+highlight OverLength ctermbg=red guibg=darkred
+match OverLength /\%90v.\+/
