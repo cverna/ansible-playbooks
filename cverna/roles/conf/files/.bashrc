@@ -44,7 +44,7 @@ function proml {
 
   local     DEFAULT="\[\033[0m\]"
 
-PS1="$GREEN\w\n $LIGHT_GREEN[\u@\h] $BLUE\$(parse_git_branch) $DEFAULT\$ "
+PS1="$GREEN\w\n $LIGHT_GREEN[\u@\h] $RED\$(parse_git_branch) $DEFAULT\$ "
 
 }
 
@@ -52,6 +52,14 @@ function pullpr {
 remote="${2:-upstream}"
 git fetch $remote pull/$1/head:pr_$1
 git checkout pr_$1
+}
+
+function diclean {
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+}
+
+function dcclean {
+docker rm $(docker ps --filter "status=exited" -q)
 }
 
 proml

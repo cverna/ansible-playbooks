@@ -1,11 +1,8 @@
 ".vimrc Clement Verna
 "
-execute pathogen#infect()
-call pathogen#helptags()
-
 "Solarized theme
 syntax enable
-let g:molokai_original = 1
+syntax on
 set background=dark
 
 "
@@ -76,6 +73,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 "ctags
 let g:ctags_statusline=1
 
+set laststatus=2
+set statusline=%f%m%r%w\ (b%n)\ %l,%v\ [%Y/%{&ff}/%{&fileencoding}]
 
 " ----------------------------------------- "
 " File Type settings 			    		"
@@ -99,3 +98,6 @@ autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 te
 autocmd BufNewFile,BufRead *.rs setlocal tabstop=4 softtabstop=4 shiftwidth=4 textwidth=90 smarttab expandtab
 " remove trailling withespace on save for python files
 autocmd BufWritePre *.py :%s/\s\+$//e
+" flag unwanted white space
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
