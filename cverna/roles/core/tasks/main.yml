@@ -21,6 +21,13 @@
       - ansible
       - gnome-tweak-tool
       - flatpak
+      - libselinux-python
+      - vagrant
+      - python2-virtualenvwrapper
+      - rpmdevtools
+      - redhat-rpm-config
+      - hexchat
+      - docker-compose
 
 - name: Install Python packages
   become: true
