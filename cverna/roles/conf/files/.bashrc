@@ -66,6 +66,10 @@ function dvclean {
 docker volume prune 
 }
 
+function fedora {
+docker run -it --rm --name fedora registry.fedoraproject.org/fedora:27
+}
+
 proml
 
 source /usr/bin/virtualenvwrapper.sh 
