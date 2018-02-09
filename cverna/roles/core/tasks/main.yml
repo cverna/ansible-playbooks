@@ -28,6 +28,7 @@
       - redhat-rpm-config
       - hexchat
       - docker-compose
+      - fedora-packager-setup
 
 - name: Install Python packages
   become: true

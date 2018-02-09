@@ -70,6 +70,10 @@ function fedora {
 docker run -it --rm --name fedora registry.fedoraproject.org/fedora:27
 }
 
+function http {
+docker run -t --rm --log-driver none httpie
+}
+
 proml
 
 source /usr/bin/virtualenvwrapper.sh 
@@ -77,6 +81,7 @@ alias ..='cd ..'
 alias la='ls -lA'
 alias vi='nvim'
 alias vim='nvim'
+alias vagrant='sudo vagrant'
 
 # Programing
 alias py='python'

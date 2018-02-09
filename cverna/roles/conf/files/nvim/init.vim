@@ -102,3 +102,6 @@ au BufRead,BufNewFile *.py match BadWhitespace /\s\+$/
 " flag line that exceed 90 char
 highlight OverLength ctermbg=red guibg=darkred
 match OverLength /\%90v.\+/
+
+" Insert rpm change log date
+inoremap <F6> <C-R>=strftime("* %a %b %d %Y Clement Verna <cverna@fedoraproject.org> - ")<CR>
