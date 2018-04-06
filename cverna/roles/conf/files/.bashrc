@@ -49,7 +49,7 @@ PS1="$BLUE\w\n $LIGHT_GREEN[\u@\h] $RED\$(parse_git_branch) $DEFAULT\$ "
 }
 
 function pullpr {
-remote="${2:-upstream}"
+remote="${2:-origin}"
 git fetch $remote pull/$1/head:pr_$1
 git checkout pr_$1
 }
@@ -71,7 +71,11 @@ docker run -it --rm --name fedora registry.fedoraproject.org/fedora:27
 }
 
 function http {
-docker run -t --rm --log-driver none httpie
+docker run -t --rm --log-driver none httpie $*
+}
+
+function golang {
+docker run -it --rm -v ~/Documents/gocode:/code:Z golang $*
 }
 
 proml
@@ -86,3 +90,6 @@ alias vagrant='sudo vagrant'
 # Programing
 alias py='python'
 alias py3='python3'
+
+#golang
+export GOPATH=/home/cverna/Documents/gocode

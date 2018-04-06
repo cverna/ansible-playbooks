@@ -29,6 +29,8 @@
       - hexchat
       - docker-compose
       - fedora-packager-setup
+      - golang
+      - golang-godoc
 
 - name: Install Python packages
   become: true

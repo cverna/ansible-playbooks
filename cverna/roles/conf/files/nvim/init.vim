@@ -70,6 +70,12 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 :imap jk <ESC>
 
+" Move around split window using C hjkl
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-l> <C-w>l
+map <C-k> <C-w>k
+
 set laststatus=2
 set statusline=%f%m%r%w\ (b%n)\ %l,%v\ [%Y/%{&ff}/%{&fileencoding}]
 
