@@ -67,16 +67,13 @@ docker volume prune
 }
 
 function fedora {
-docker run -it --rm --name fedora registry.fedoraproject.org/fedora:27
+sudo podman -it --rm --name fedora registry.fedoraproject.org/fedora:latest
 }
 
 function http {
-docker run -t --rm --log-driver none httpie $*
+sudo podman run -t --rm --log-driver none httpie $*
 }
 
-function golang {
-docker run -it --rm -v ~/Documents/gocode:/code:Z golang $*
-}
 
 proml
 
