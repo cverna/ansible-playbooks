@@ -21,6 +21,50 @@
       - hexchat
       - pipenv
 
+- name: Remove not used packages
+  become: true
+  dnf:
+      name: "{{ item }}"
+      state: absent
+  with_items:
+      - cheese
+      - evolution
+      - evolution-ews
+      - evolution-help
+      - gnome-boxes
+      - gnome-calendar
+      - gnome-contacts
+      - gnome-dictionary
+      - gnome-getting-started-docs
+      - gnome-initial-setup
+      - gnome-maps
+      - gnome-online-miners
+      - gnome-user-docs
+      - gnome-user-share
+      - gnome-weather
+      - tracker-miners
+      - yelp
+      - rhythmbox
+
+- name: ensure core gnome packages are installed
+  become: true
+  dnf:
+    name:
+      - eog
+      - evince
+      - evolution-data-server
+      - flatpak
+      - gdm
+      - gnome-keyring
+      - gnome-menus
+      - gnome-screenshot
+      - gnome-shell
+      - gnome-terminal
+      - gnome-tweaks
+      - nautilus
+      - redhat-menus
+    state: present
+
 - name: Add user to wheel group
   user:
       name: "{{ username }}"
