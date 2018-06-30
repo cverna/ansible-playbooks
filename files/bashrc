@@ -77,7 +77,6 @@ sudo podman run -t --rm --log-driver none httpie $*
 
 proml
 
-source /usr/bin/virtualenvwrapper.sh 
 alias ..='cd ..'
 alias la='ls -lA'
 alias vi='nvim'

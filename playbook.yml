@@ -3,7 +3,7 @@
   become: false
   become_method: sudo
   vars:
+    files: "{{ ansible_user_dir }}/Documents/ansible-playbooks/files"
     username: cverna
   roles:
     - core
-    - conf

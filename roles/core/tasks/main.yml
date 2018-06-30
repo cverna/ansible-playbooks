@@ -1,0 +1,64 @@
+---
+- name: Install basic packages
+  become: true
+  dnf:
+      name: "{{ item }}"
+      state: present
+  with_items:
+      - htop
+      - ftop
+      - powertop
+      - git
+      - tmux
+      - neovim
+      - mozilla-fira-mono-fonts
+      - mozilla-https-everywhere
+      - gobby05
+      - httpie
+      - vagrant
+      - rpmdevtools
+      - redhat-rpm-config
+      - hexchat
+      - pipenv
+
+- name: Add user to wheel group
+  user:
+      name: "{{ username }}"
+      groups: wheel
+      append: yes
+
+- name: Install .bashrc
+  file:
+        src: "{{ files }}/bashrc"
+        dest: "{{ ansible_user_dir }}/.bashrc"
+        mode: 0644
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        force: yes
+        state: link
+
+- name: Install .tmux.conf
+  file:
+        src: "{{ files }}/tmux.conf"
+        dest: "{{ ansible_user_dir }}/.tmux.conf"
+        mode: 0644
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        force: yes
+        state: link
+
+- name: Install .gitconfig
+  file:
+        src: "{{ files }}/gitconfig"
+        dest: "{{ ansible_user_dir }}/.gitconfig"
+        mode: 0644
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
+        force: yes
+        state: link
+
+- name: Copy neovim configuration
+  synchronize:
+      src: nvim/
+      dest: "{{ ansible_user_dir }}/.config/nvim"
+
