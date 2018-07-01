@@ -20,6 +20,8 @@
       - redhat-rpm-config
       - hexchat
       - pipenv
+      - inkscape
+      - ripgrep
 
 - name: Remove not used packages
   become: true
