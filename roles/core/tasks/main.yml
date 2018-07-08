@@ -22,6 +22,8 @@
       - pipenv
       - inkscape
       - ripgrep
+      - podman
+      - buildah
 
 - name: Remove not used packages
   become: true
