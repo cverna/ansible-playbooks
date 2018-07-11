@@ -16,6 +16,7 @@
       - gobby05
       - httpie
       - vagrant
+      - vagrant-sshfs
       - rpmdevtools
       - redhat-rpm-config
       - hexchat
