@@ -1,7 +1,7 @@
 ---
 - name: Install basic packages
   become: true
-  command: "buildah run {{ container_name }} -- dnf install -y {{ item }}"
+  command: "buildah run {{ container_name }} -- microdnf install -y {{ item }}"
   with_items:
       - asciidoctor
       - python3-pelican

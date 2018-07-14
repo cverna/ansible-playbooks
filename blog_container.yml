@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    image: registry.fedoraproject.org/fedora:28
+    image: registry.fedoraproject.org/fedora-minimal:28
     container_name: build_container
     image_name: blogger
 
