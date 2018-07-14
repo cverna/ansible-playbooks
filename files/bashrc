@@ -78,6 +78,10 @@ function bloggen {
 sudo podman run --rm -v $PWD:/blog:z -u 1000:1000 blogger
 }
 
+function serveblog {
+sudo podman run --rm -v $PWD/output/:/var/www/html:z -p 8000:80 httpd
+}
+
 
 proml
 
