@@ -1,0 +1,15 @@
+---
+- name: Install basic packages
+  become: true
+  command: "buildah run {{ container_name }} -- dnf install -y {{ item }}"
+  with_items:
+      - asciidoctor
+      - python3-pelican
+
+- name: Copy pelican theme and plugins
+  command: "buildah copy {{ container_name }} '{{ role_path }}/files/{{ item }}' '/srv/{{ item }}'"
+  with_items:
+    - asciidoc_reader
+    - i18n_subsites
+    - pelican-bootstrap3
+  become: true

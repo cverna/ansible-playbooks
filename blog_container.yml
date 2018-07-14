@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    image: registry.fedoraproject.org/fedora:28
+    container_name: build_container
+    image_name: blogger
+
+  tasks:
+  - name: Obtain base image and create a container out of it
+    command: 'buildah from --name {{ container_name }} {{ image }}'
+    become: true
+
+  - name: Add the newly created container to the inventory
+    add_host:
+      hostname: '{{ container_name }}'
+      ansible_connection: buildah
+      ansible_python_interpreter: /usr/bin/python3  # fedora container doesn't ship python2
+
+  - name: Run the role in the container
+    delegate_to: '{{ container_name }}'
+    include_role:
+      name: blogger
+
+  - block:
+    - name: Create the volume for the blog repo
+      command: 'buildah config --volume /blog {{ container_name }}'
+    - name: Setup the default workdir
+      command: 'buildah config --workingdir /blog {{ container_name }}'
+    - name: Setup the container entrypoint
+      command: 'buildah config --entrypoint "pelican -o output -s pelicanconf.py" {{ container_name }}'
+    - name: Commit the container and make it an image
+      command: 'buildah commit --rm {{ container_name }} {{ image_name }}'
+    become: true

@@ -74,6 +74,10 @@ function http {
 sudo podman run -t --rm --log-driver none httpie $*
 }
 
+function bloggen {
+sudo podman run --rm -v $PWD:/blog:z -u 1000:1000 blogger
+}
+
 
 proml
 
