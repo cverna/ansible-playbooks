@@ -14,7 +14,6 @@
       - mozilla-fira-mono-fonts
       - mozilla-https-everywhere
       - gobby05
-      - httpie
       - vagrant
       - vagrant-sshfs
       - rpmdevtools
