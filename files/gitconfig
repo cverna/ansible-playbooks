@@ -2,7 +2,7 @@
 	name = Clement Verna
 	email = cverna@tutanota.com
 [core]
-    editor = vim
+    editor = nvim
     whitespace = trailing-space,space-before-tab
 [apply]
     whitespace = fix
@@ -18,3 +18,5 @@
 	st = status
 	br = branch
 	ll = log --graph --pretty=oneline --decorate --abbrev-commit
+[pull]
+	rebase = true

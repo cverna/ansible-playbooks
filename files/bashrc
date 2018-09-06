@@ -63,15 +63,15 @@ docker rm $(docker ps --filter "status=exited" -q)
 }
 
 function dvclean {
-docker volume prune 
+docker volume prune
 }
 
 function fedora {
-sudo podman -it --rm --name fedora registry.fedoraproject.org/fedora:latest
+podman run -it --rm --name fedora registry.fedoraproject.org/fedora:latest
 }
 
-function http {
-sudo podman run -t --rm --log-driver none httpie $*
+function fedoramin {
+podman run -it --rm --name fedoramin registry.fedoraproject.org/fedora-minimal:latest
 }
 
 function bloggen {
@@ -82,6 +82,9 @@ function serveblog {
 sudo podman run --rm -v $PWD/output/:/var/www/html:z -p 8000:80 httpd
 }
 
+function dockerregistry {
+docker run -d -p 5000:5000 --rm  --name registry registry:2
+}
 
 proml
 
